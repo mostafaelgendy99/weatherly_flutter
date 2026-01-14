@@ -1,18 +1,8 @@
-class WeatherForecast {
+import 'package:equatable/equatable.dart';
+
+class CurrentWeather extends Equatable {
   final String cityName;
   final String country;
-  final List<ForecastItem> items;
-
-  WeatherForecast({
-    required this.cityName,
-    required this.country,
-    required this.items,
-  });
-}
-
-
-class ForecastItem {
-  final DateTime dateTime;
 
   final double temperature;
   final double feelsLike;
@@ -29,10 +19,11 @@ class ForecastItem {
   final int windDegree;
 
   final int visibility;
-  final double precipitationProbability;
+  final DateTime dateTime;
 
-  ForecastItem({
-    required this.dateTime,
+  CurrentWeather({
+    required this.cityName,
+    required this.country,
     required this.temperature,
     required this.feelsLike,
     required this.minTemp,
@@ -45,6 +36,26 @@ class ForecastItem {
     required this.windSpeed,
     required this.windDegree,
     required this.visibility,
-    required this.precipitationProbability,
+    required this.dateTime,
   });
+
+  
+  @override
+  List<Object?> get props => [
+        cityName,
+        country,
+        temperature,
+        feelsLike,
+        minTemp,
+        maxTemp,
+        humidity,
+        pressure,
+        weatherMain,
+        weatherDescription,
+        weatherIcon,
+        windSpeed,
+        windDegree,
+        visibility,
+        dateTime,
+      ];
 }
